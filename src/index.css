@@ -1,68 +1,74 @@
+@import "tailwindcss";
+
+/* Root variables based on your original CSS */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg: #0f111a;
+  --card: #1f2235;
+  --surface: #1f2235;
+  --text: #e3e8ff;
+  --muted: #8a92b2;
+  --radius: 1rem;
+  --shadow: 0 25px 50px -12px rgba(0,0,0,.5);
+  --gradient: linear-gradient(135deg,#6e56f9,#c978ff);
+  --transition: .35s cubic-bezier(.4,.2,.2,1);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* base resets */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
 body {
   margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* small helpers & your styles: component classes mirror the original CSS */
+.container { width: min(1200px, 90%); margin: 0 auto; padding-top: 1rem; }
+.header-backdrop {
+  backdrop-filter: blur(12px);
+  background: rgba(15,17,26,.85);
+  transition: background var(--transition);
+}
+
+/* Buttons */
+.btn {
+  padding: .65rem 1.3rem;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-flex;
+  gap: .35rem;
+  align-items: center;
+  border: none;
+  background: var(--gradient);
+  color: #fff;
+  transition: filter .3s;
+}
+.btn:hover { filter: brightness(1.05); }
+
+/* Re-use your original classes (hero, project-card, etc.) */
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; padding-top: 2rem; }
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; }
+}
+
+/* project cards */
+.project-card {
+  background: var(--card);
+  border-radius: 1rem;
+  padding: 1.35rem 1.5rem;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 35px 60px -15px rgba(110,86,249,.3); }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+/* small utilities */
+.pill { background: rgba(255,255,255,.07); padding: .45rem .9rem; border-radius: 999px; font-size: .75rem; }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* preserve your visual touches – add more as needed. */
