@@ -104,12 +104,12 @@ const SkillSphere3D: React.FC = () => {
 
     let animationFrame: number;
     let startTime = Date.now();
-    let lastFrameTime = Date.now();
+    // let lastFrameTime = Date.now();
 
     const animate = () => {
       const now = Date.now();
-    //   const deltaTime = now - lastFrameTime;
-      lastFrameTime = now;
+      // const deltaTime = now - lastFrameTime;
+      // lastFrameTime = now;
 
       const rect = canvas.getBoundingClientRect();
       const centerX = rect.width / 2;
@@ -187,7 +187,8 @@ const SkillSphere3D: React.FC = () => {
       projectedPoints.forEach((point, index) => {
         const { x2d, y2d, z, scale, skill } = point;
         const depth = (z + 1) / 2;
-        const fadeIn = Math.min(1, (now - startTime - index * 40) / 800);
+        // const fadeIn = Math.min(1, (now - startTime - index * 40) / 800);
+        const fadeIn = 0.9 + Math.min(0.1, (now - startTime - index * 40) / 800 * 0.1);
 
         if (depth > 0 && fadeIn > 0) {
           const categoryColors: Record<string, { primary: string; secondary: string; glow: string }> = {
@@ -341,12 +342,15 @@ const SkillSphere3D: React.FC = () => {
         const y2d = rect.height / 2 + y * radius * scale;
         
         const distance = Math.sqrt((mouseX - x2d) ** 2 + (mouseY - y2d) ** 2);
-        if (distance < 40 * scale) {
+        const hoverThreshold = 50 * scale; // slightly larger than 40
+        if (distance < hoverThreshold) {
           foundHover = point.skill.name;
           break;
         }
       }
-      setHoveredSkill(foundHover);
+      if (foundHover !== hoveredSkill) {
+        setHoveredSkill(foundHover);
+      }
     };
 
     const handleEnd = () => {
@@ -355,35 +359,53 @@ const SkillSphere3D: React.FC = () => {
     };
 
     // Mouse events
-    const handleMouseDown = (e: MouseEvent) => handleStart(e.clientX, e.clientY);
-    const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX, e.clientY);
+    const handleMouseDown = (e: MouseEvent) => {
+      e.preventDefault();
+      handleStart(e.clientX, e.clientY);
+    };
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      handleMove(e.clientX, e.clientY);
+    };
+    
     const handleMouseUp = () => handleEnd();
 
-    // Touch events
+    // Touch events with proper prevention
     const handleTouchStart = (e: TouchEvent) => {
       e.preventDefault();
-      const touch = e.touches[0];
-      handleStart(touch.clientX, touch.clientY);
+      e.stopPropagation();
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        handleStart(touch.clientX, touch.clientY);
+      }
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       e.preventDefault();
-      const touch = e.touches[0];
-      handleMove(touch.clientX, touch.clientY);
+      e.stopPropagation();
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        handleMove(touch.clientX, touch.clientY);
+      }
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
       e.preventDefault();
+      e.stopPropagation();
       handleEnd();
     };
 
+    // Attach mouse events
     canvas.addEventListener('mousedown', handleMouseDown);
     canvas.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
+    canvas.addEventListener('mouseleave', handleMouseUp);
 
+    // Attach touch events with proper options
     canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
     canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
     canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
+    canvas.addEventListener('touchcancel', handleTouchEnd, { passive: false });
 
     return () => {
       cancelAnimationFrame(animationFrame);
@@ -404,7 +426,7 @@ const SkillSphere3D: React.FC = () => {
         className="relative w-full h-[500px] md:h-[700px] rounded-3xl overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-black border-2 border-cyan-400/20 shadow-2xl shadow-cyan-400/10"
       >
         {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5 animate-pulse-slow" />
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5 animate-pulse-slow pointer-events-none" />
         
         {/* Canvas */}
         <canvas
@@ -468,7 +490,7 @@ const SkillSphere3D: React.FC = () => {
         }
         
         @keyframes scale-in {
-          from { transform: scale(0.8); opacity: 0; }
+          from { transform: scale(0.8); opacity: 1; }
           to { transform: scale(1); opacity: 1; }
         }
         
