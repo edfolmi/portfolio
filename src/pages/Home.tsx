@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import type { Project } from '../types/index';
-import { AnimatedCursor } from '../components/ui/AnimatedCursor';
+// import { AnimatedCursor } from '../components/ui/AnimatedCursor';
 import { Preloader } from '../components/ui/Preloader';
+import SkillSphere3D from '../components/ui/SkillSphere';
 
 import Navigation from '../components/layout/Navbar';
 import Hero from '../components/layout/Hero';
@@ -50,9 +51,10 @@ const Home: React.FC = () => {
       
       {!loading && (
         <>
-          <AnimatedCursor />
+          {/* <AnimatedCursor /> */}
           <Navigation activeSection={activeSection} />
           <Hero />
+          <SkillSphere3D />
           <About />
           <Portfolio onProjectClick={setSelectedProject} />
           <Services />
