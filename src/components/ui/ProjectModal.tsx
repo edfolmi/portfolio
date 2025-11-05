@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { X } from 'lucide-react';
 import type { Project } from '../../types';
 
@@ -93,6 +94,15 @@ const ProjectModal: React.FC<{ project: Project | null; onClose: () => void }> =
             >
               Start Similar Project
             </a>
+            <Link to={project.links?.[0].href ?? "#"}>
+              <button
+                onClick={onClose}
+                className="px-6 py-4 bg-white/5 border-2 border-white/10 text-white rounded-full font-bold hover:shadow-lg hover:shadow-cyan-400/50 hover:scale-105 transition-all"
+              >
+                {project.links?.[0].label ?? "Visit"}
+              </button>
+            </Link>
+
             <button
               onClick={onClose}
               className="px-6 py-4 bg-white/5 border-2 border-white/10 text-white rounded-full font-semibold hover:bg-white/10 hover:border-cyan-400/50 transition-all"

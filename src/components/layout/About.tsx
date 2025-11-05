@@ -11,12 +11,12 @@ const About: React.FC = () => {
   const { ref, isVisible } = useScrollReveal();
 
   const skills = [
-    { name: 'Node.js', level: 95 },
-    { name: 'Python', level: 90 },
-    { name: 'PostgreSQL', level: 92 },
-    { name: 'Redis', level: 88 },
-    { name: 'Docker', level: 85 },
-    { name: 'AWS', level: 87 },
+    { name: 'Leadership', level: 96 },
+    { name: 'Communication', level: 97 },
+    { name: 'Team Collaboration', level: 98 },
+    { name: 'Problem Solving', level: 99 },
+    { name: 'Adaptability', level: 99 },
+    { name: 'Creativity', level: 99 },
   ];
 
   return (
@@ -29,16 +29,16 @@ const About: React.FC = () => {
             Why Work With Me?
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            I don't just write code—I architect scalable solutions that drive real business growth. 
-            With <span className="text-cyan-400 font-semibold">5+ years</span> of backend expertise, 
-            I've helped startups scale from zero to millions in revenue.
+            I design scalable solutions that propel actual business growth in addition to writing code. 
+            Having worked in backend development for <span className="text-cyan-400 font-semibold">4+ years</span>, 
+            I have assisted startups in growing from zero to millions in revenue.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Skills */}
           <div className={`space-y-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
-            <h3 className="text-3xl font-bold text-white mb-8">Core Expertise</h3>
+            <h3 className="text-3xl font-bold text-white mb-8">Soft Skills</h3>
             {skills.map((skill, index) => (
               <div key={skill.name} className="group" style={{ transitionDelay: `${index * 0.1}s` }}>
                 <div className="flex justify-between mb-2">
@@ -68,12 +68,12 @@ const About: React.FC = () => {
               {
                 icon: <Zap className="w-6 h-6" />,
                 title: 'Performance Obsessed',
-                desc: 'Sub-200ms response times aren\'t optional—they\'re standard. I optimize for speed at every layer.'
+                desc: '200ms response times aren\'t optional, they\'re standard. I optimize for speed at every layer.'
               },
               {
                 icon: <Database className="w-6 h-6" />,
                 title: 'Scalable Architecture',
-                desc: 'From 100 to 100,000 users, your backend will handle it. Microservices, caching, load balancing—done right.'
+                desc: 'From 100 to 100,000 users, your backend will handle it. Microservices, caching, load balancing done right.'
               },
             ].map((item, index) => (
               <div

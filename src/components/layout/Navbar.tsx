@@ -14,7 +14,7 @@ const Navigation: React.FC<{ activeSection: string }> = ({ activeSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['About', 'Portfolio', 'Services', 'Testimonials', 'Contact'];
+  const navItems = ['About', 'Portfolio', 'Testimonials', 'Contact'];  // 'Services',
 
   return (
     <nav

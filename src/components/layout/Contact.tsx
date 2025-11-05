@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, MessageCircle, Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';  // MessageCircle,
 import { FloatingParticles } from '../ui/FloatingParticles';
 import { useScrollReveal } from '../../hooks/customHooks';
 
@@ -9,50 +9,7 @@ import { useScrollReveal } from '../../hooks/customHooks';
 // ============================================
 const Contact: React.FC = () => {
   const { ref, isVisible } = useScrollReveal();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    service: '',
-    message: '',
-  });
-  const [errors, setErrors] = useState<Record<string, string>>({});
   const [showSuccess, setShowSuccess] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: '' });
-  };
-
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-    
-    if (!formData.name.trim()) newErrors.name = 'Please enter your name';
-    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
-    if (!formData.service) newErrors.service = 'Please select a service';
-    if (!formData.message.trim()) newErrors.message = 'Please describe your project';
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      setIsSubmitting(true);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setShowSuccess(true);
-      setIsSubmitting(false);
-      setFormData({ name: '', email: '', service: '', message: '' });
-      
-      setTimeout(() => setShowSuccess(false), 6000);
-    }
-  };
 
   return (
     <section id="contact" className="py-24 px-6 bg-slate-900/30 relative overflow-hidden">
@@ -71,136 +28,14 @@ const Contact: React.FC = () => {
           <p className="text-cyan-400 font-semibold">⚡ Average response time: 2-4 hours</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <form onSubmit={handleSubmit} className={`bg-gradient-to-br from-slate-900/80 to-slate-900/40 rounded-3xl p-8 border border-white/5 hover:border-cyan-400/30 transition-all duration-500 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            <div className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-white font-semibold mb-2 flex items-center gap-2">
-                  <span>Your Name</span>
-                  <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`w-full px-5 py-4 bg-slate-950/50 border-2 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-all duration-300 ${
-                    errors.name ? 'border-red-500 shake' : 'border-white/10 focus:border-cyan-400 focus:ring-cyan-400/20'
-                  }`}
-                  placeholder="John Doe"
-                />
-                {errors.name && (
-                  <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                    <X className="w-4 h-4" />
-                    {errors.name}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-white font-semibold mb-2 flex items-center gap-2">
-                  <span>Email Address</span>
-                  <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`w-full px-5 py-4 bg-slate-950/50 border-2 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-all duration-300 ${
-                    errors.email ? 'border-red-500 shake' : 'border-white/10 focus:border-cyan-400 focus:ring-cyan-400/20'
-                  }`}
-                  placeholder="john@example.com"
-                />
-                {errors.email && (
-                  <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                    <X className="w-4 h-4" />
-                    {errors.email}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="service" className="block text-white font-semibold mb-2 flex items-center gap-2">
-                  <span>Select Service</span>
-                  <span className="text-red-400">*</span>
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className={`w-full px-5 py-4 bg-slate-950/50 border-2 rounded-2xl text-white focus:outline-none focus:ring-2 transition-all duration-300 ${
-                    errors.service ? 'border-red-500 shake' : 'border-white/10 focus:border-cyan-400 focus:ring-cyan-400/20'
-                  }`}
-                >
-                  <option value="">Choose a package</option>
-                  <option value="bronze">Bronze - ₦50k/month</option>
-                  <option value="silver">Silver - ₦100k/month (Popular)</option>
-                  <option value="gold">Gold - ₦200k/month</option>
-                  <option value="custom">Custom Project (₦500k+)</option>
-                </select>
-                {errors.service && (
-                  <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                    <X className="w-4 h-4" />
-                    {errors.service}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-white font-semibold mb-2 flex items-center gap-2">
-                  <span>Project Details</span>
-                  <span className="text-red-400">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  placeholder="Tell me about your project, timeline, and goals..."
-                  className={`w-full px-5 py-4 bg-slate-950/50 border-2 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-all duration-300 resize-none ${
-                    errors.message ? 'border-red-500 shake' : 'border-white/10 focus:border-cyan-400 focus:ring-cyan-400/20'
-                  }`}
-                />
-                {errors.message && (
-                  <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                    <X className="w-4 h-4" />
-                    {errors.message}
-                  </p>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 rounded-full font-bold hover:shadow-2xl hover:shadow-cyan-400/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
-
+        <div className="grid md:grid-cols-1 gap-8 mb-12">
           {/* Contact Info Card */}
           <div className={`space-y-6 ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <div className="bg-gradient-to-br from-slate-900/80 to-slate-900/40 rounded-3xl p-8 border border-white/5 hover:border-cyan-400/30 transition-all duration-500">
               <h3 className="text-2xl font-bold text-white mb-6">Quick Connect</h3>
               
               <div className="space-y-4">
-                <a
+                {/* <a
                   href="https://wa.me/2348012345678"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -213,10 +48,10 @@ const Contact: React.FC = () => {
                     <div className="font-semibold text-white">WhatsApp</div>
                     <div className="text-sm text-gray-400">Fastest response time</div>
                   </div>
-                </a>
+                </a> */}
 
                 <a
-                  href="https://linkedin.com/in/yourprofile"
+                  href="https://www.linkedin.com/in/ephraim-daniel-374103172/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl hover:bg-blue-500/10 border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 group"
@@ -231,7 +66,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:edfolmi@gmail.com"
                   className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 group"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -239,7 +74,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-white">Email</div>
-                    <div className="text-sm text-gray-400">your.email@example.com</div>
+                    <div className="text-sm text-gray-400">edfolmi@gmail.com</div>
                   </div>
                 </a>
               </div>
@@ -252,7 +87,7 @@ const Contact: React.FC = () => {
                 <span className="text-green-400 font-semibold">Currently Available</span>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Taking on <span className="text-cyan-400 font-semibold">2 new projects</span> for Q1 2025. 
+                I'm open to a new role, or taking on <span className="text-cyan-400 font-semibold">1 new project</span> for Q4 2025. 
                 Book a free consultation to discuss your requirements.
               </p>
             </div>

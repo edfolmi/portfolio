@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Award, Code, Send, Shield, Star, Zap } from "lucide-react";
 import { FloatingParticles } from "../ui/FloatingParticles";
 import { useScrollReveal, useCounter } from '../../hooks/customHooks';
+import me from "../../assets/me.jpeg";
 
 
 // ============================================
@@ -15,7 +16,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-20">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-30">
       {/* Animated Background */}
       <FloatingParticles />
       <div className="absolute inset-0 overflow-hidden">
@@ -36,13 +37,17 @@ const Hero: React.FC = () => {
               </div>
               
               {/* Profile photo placeholder with gradient */}
-              <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gradient shadow-2xl shadow-cyan-400/30 group-hover:shadow-cyan-400/50 transition-all duration-500 group-hover:scale-105">
+              <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gradient shadow-2xl shadow-cyan-400/50 group-hover:shadow-cyan-400/50 transition-all duration-500 group-hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-amber-400/20" />
                 <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-white/80">
-                  Me
+                  <img 
+                    src={me} 
+                    alt="EDFolmi" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-cyan-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-cyan-400/40 to-transparent opacity-100 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Floating badges */}

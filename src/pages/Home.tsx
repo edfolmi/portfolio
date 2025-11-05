@@ -9,7 +9,7 @@ import Navigation from '../components/layout/Navbar';
 import Hero from '../components/layout/Hero';
 import About from '../components/layout/About';
 import Portfolio from '../components/layout/Portfolio';
-import Services from '../components/layout/Service';
+// import Services from '../components/layout/Service';
 import Testimonials from '../components/layout/Testimonial';
 import Contact from '../components/layout/Contact';
 import ProjectModal from '../components/ui/ProjectModal';
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
           <SkillSphere3D />
           <About />
           <Portfolio onProjectClick={setSelectedProject} />
-          <Services />
+          {/* <Services /> */}
           <Testimonials />
           <Contact />
           <Footer />
