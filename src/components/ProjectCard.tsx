@@ -17,7 +17,7 @@ const ProjectCard: React.FC<Props> = ({ project }) => {
       {project.result && <p className="result-badge text-sm">{project.result}</p>}
 
       <div className="flex gap-2 flex-wrap">
-        {project.stack.map((s) => (
+        {project.stack?.map((s: string) => (
           <span key={s} className="pill text-xs">{s}</span>
         ))}
       </div>

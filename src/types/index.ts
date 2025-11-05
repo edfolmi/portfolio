@@ -14,16 +14,24 @@ export interface Project {
     impact: string;
     tech: string[];
   };
+  badge?: string;
+  stack?: string[];
+  links?: {
+    href: string;
+    label: string;
+  }[];
 }
 
 export interface Testimonial {
   id: string;
   quote: string;
-  author: string;
-  role: string;
-  company: string;
-  avatar: string;
-  rating: number;
+  author?: string;
+  role?: string;
+  company?: string;
+  avatar?: string;
+  rating?: number;
+  initials?: string;
+  name?: string;
 }
 
 export interface Service {
