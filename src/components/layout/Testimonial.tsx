@@ -95,9 +95,9 @@ const Testimonials: React.FC = () => {
                     </p>
                     
                     <div className="flex items-center gap-5">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-slate-950 font-bold text-2xl shadow-lg">
+                      {/* <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-slate-950 font-bold text-2xl shadow-lg">
                         {testimonial.avatar}
-                      </div>
+                      </div> */}
                       <div>
                         <div className="font-bold text-white text-xl mb-1">{testimonial.author}</div>
                         <div className="text-gray-400 text-lg">

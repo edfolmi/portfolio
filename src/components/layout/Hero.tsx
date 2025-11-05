@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-30">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-30 pb-10">
       {/* Animated Background */}
       <FloatingParticles />
       <div className="absolute inset-0 overflow-hidden">
@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl">
-              Specializing in <span className="text-cyan-400 font-semibold">fintech</span>, <span className="text-cyan-400 font-semibold">SaaS</span>, <span className="text-cyan-400 font-semibold">healthtech</span> & <span className="text-cyan-400 font-semibold">logistics</span> integrations.
+              Specializing in <span className="text-cyan-400 font-semibold">building</span> <span className="text-cyan-400 font-semibold">robust</span> <span className="text-cyan-400 font-semibold">backend</span> <span className="text-cyan-400 font-semibold">APIs</span> that always scales.
             </p>
 
             <div className="flex gap-6 justify-center lg:justify-start mb-16 flex-wrap">

@@ -448,7 +448,7 @@ return (
       <div className="absolute top-4 left-4 md:top-6 md:left-6 space-y-2">
         <div className="flex items-center gap-2 px-4 py-2 bg-slate-950/80 backdrop-blur-xl rounded-full border border-cyan-400/30">
           <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
-          <span className="text-cyan-400 font-semibold text-sm">25 Core Skills</span>
+          <span className="text-cyan-400 font-semibold text-sm">22 Core Skills</span>
         </div>
         {hoveredSkill && (
           <div className="px-4 py-2 bg-slate-950/90 backdrop-blur-xl rounded-full border border-purple-400/30 animate-scale-in">
@@ -487,9 +487,9 @@ return (
       </div>
 
       {/* Performance indicator */}
-      <div className="absolute bottom-4 right-4 px-3 py-1 bg-emerald-500/20 backdrop-blur-sm rounded-full border border-emerald-400/30">
+      {/* <div className="absolute bottom-4 right-4 px-3 py-1 bg-emerald-500/20 backdrop-blur-sm rounded-full border border-emerald-400/30">
         <span className="text-emerald-400 text-xs font-semibold">60 FPS</span>
-      </div>
+      </div> */}
     </div>
 
     <style>{`

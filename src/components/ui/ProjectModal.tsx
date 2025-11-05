@@ -103,12 +103,12 @@ const ProjectModal: React.FC<{ project: Project | null; onClose: () => void }> =
               </button>
             </Link>
 
-            <button
+            {/* <button
               onClick={onClose}
               className="px-6 py-4 bg-white/5 border-2 border-white/10 text-white rounded-full font-semibold hover:bg-white/10 hover:border-cyan-400/50 transition-all"
             >
               Close
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
