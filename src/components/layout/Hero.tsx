@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Award, Code, Send, Shield, Star, Zap } from "lucide-react";
+import { Award, Send, Shield, Star, Zap } from "lucide-react";
 import { FloatingParticles } from "../ui/FloatingParticles";
 import { useScrollReveal, useCounter } from '../../hooks/customHooks';
 import me from "../../assets/me.jpeg";
@@ -10,9 +10,9 @@ import me from "../../assets/me.jpeg";
 // ============================================
 const Hero: React.FC = () => {
   const stats = [
-    { value: 200000, label: 'API calls / day', icon: <Code className="w-5 h-5" /> },
+    // { value: 200000, label: 'API calls / day', icon: <Code className="w-5 h-5" /> },
     { value: 99.99, label: '% uptime', icon: <Shield className="w-5 h-5" /> },
-    { value: 47, label: 'Projects delivered', icon: <Award className="w-5 h-5" /> },
+    { value: 30, label: '+ Projects delivered', icon: <Award className="w-5 h-5" /> },
   ];
 
   return (
