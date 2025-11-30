@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 
 // ============================================
@@ -15,15 +15,15 @@ const Footer: React.FC = () => {
           <h3 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-amber-400 bg-clip-text text-transparent mb-3">
             Let's build something reliable.
           </h3>
-          {/* <p className="text-xl text-gray-400 mb-8">Start with a 15-minute call.</p> */}
+          <p className="text-xl text-gray-400 mb-8">Start with a 15-minute call.</p>
           
-          {/* <a
-            href="#contact"
+          <a
+            href="https://calendly.com/edfolmi/30min"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 rounded-full font-bold hover:shadow-2xl hover:shadow-cyan-400/50 hover:scale-110 transition-all duration-300"
           >
             <Send className="w-5 h-5" />
             Schedule Free Consultation
-          </a> */}
+          </a>
         </div>
         
         <nav className="flex justify-center gap-8 flex-wrap mb-8">
