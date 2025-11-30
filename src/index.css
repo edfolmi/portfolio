@@ -205,6 +205,21 @@
     }
 }
 
+img {
+  image-rendering: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
+.smooth-img {
+  image-rendering: smooth;
+  -webkit-image-rendering: smooth;
+}
+
+.image-rendering-auto {
+  image-rendering: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
 .animate-fade-in {
     animation: fade-in 0.6s ease-out forwards;
 }

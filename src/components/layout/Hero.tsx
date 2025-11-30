@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Award, Send, Shield, Star, Zap } from "lucide-react";
 import { FloatingParticles } from "../ui/FloatingParticles";
 import { useScrollReveal, useCounter } from '../../hooks/customHooks';
-import me from "../../assets/me.jpeg";
+import me from "../../assets/me.jpg";
 
 
 // ============================================
@@ -27,46 +27,13 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Profile Section */}
-          <div className="flex-shrink-0 animate-slide-in-left">
-            <div className="relative group">
-              {/* Animated rings around photo */}
-              <div className="absolute inset-0 -m-4">
-                <div className="absolute inset-0 border-2 border-cyan-400/30 rounded-full animate-spin-slow" />
-                <div className="absolute inset-0 border-2 border-amber-400/30 rounded-full animate-spin-reverse" />
-              </div>
-              
-              {/* Profile photo placeholder with gradient */}
-              <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gradient shadow-2xl shadow-cyan-400/50 group-hover:shadow-cyan-400/50 transition-all duration-500 group-hover:scale-105">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-amber-400/20" />
-                <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-white/80">
-                  <img 
-                    src={me} 
-                    alt="EDFolmi" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-cyan-400/40 to-transparent opacity-100 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-
-              {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg animate-bounce-slow">
-                <Zap className="w-10 h-10 text-white" />
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg animate-bounce-slow" style={{ animationDelay: '0.5s' }}>
-                <Star className="w-8 h-8 text-white" />
-              </div>
-            </div>
-          </div>
 
           {/* Content Section */}
           <div className="text-center lg:text-left animate-slide-in-right">
             <div className="inline-block mb-4 px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded-full text-cyan-400 font-semibold text-sm animate-fade-in">
               ⚡ Available for Premium Projects
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-white via-cyan-400 to-white bg-clip-text text-transparent animate-gradient">
                 I build secure, scalable APIs & backends
@@ -74,7 +41,7 @@ const Hero: React.FC = () => {
               <br />
               <span className="text-gray-400 text-4xl md:text-5xl">for startups and businesses.</span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl">
               Specializing in <span className="text-cyan-400 font-semibold">building</span> <span className="text-cyan-400 font-semibold">robust</span> <span className="text-cyan-400 font-semibold">backend</span> <span className="text-cyan-400 font-semibold">APIs</span> that always scales.
             </p>
@@ -100,6 +67,40 @@ const Hero: React.FC = () => {
               {stats.map((stat, index) => (
                 <StatCounter key={index} {...stat} delay={index * 0.2} />
               ))}
+            </div>
+          </div>
+
+
+          {/* Profile Section */}
+          <div className="flex-shrink-0 animate-slide-in-left">
+            <div className="relative group">
+              {/* Animated rings around photo */}
+              <div className="absolute inset-0 -m-4">
+                <div className="absolute inset-0 border-2 border-cyan-400/30 rounded-full animate-spin-slow" />
+                <div className="absolute inset-0 border-2 border-amber-400/30 rounded-full animate-spin-reverse" />
+              </div>
+
+              {/* Profile photo placeholder with gradient */}
+              <div className="relative w-100 h-100 rounded-full overflow-hidden border-4 border-gradient shadow-2xl shadow-cyan-400/50 group-hover:shadow-cyan-400/50 transition-all duration-500 group-hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-amber-400/20" />
+                <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-white/80">
+                  <img
+                    src={me}
+                    alt="EDFolmi"
+                  />
+                </div>
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-cyan-400/40 to-transparent opacity-100 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+
+              {/* Floating badges */}
+              <div className="absolute -top-1 -right-4 w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg animate-bounce-slow">
+                <Zap className="w-10 h-10 text-white" />
+              </div>
+
+              <div className="absolute -bottom-1 -left-4 w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg animate-bounce-slow" style={{ animationDelay: '0.5s' }}>
+                <Star className="w-8 h-8 text-white" />
+              </div>
             </div>
           </div>
         </div>
