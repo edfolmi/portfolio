@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Profile photo placeholder with gradient */}
-              <div className="relative w-100 h-100 rounded-full overflow-hidden border-4 border-gradient shadow-2xl shadow-cyan-400/50 group-hover:shadow-cyan-400/50 transition-all duration-500 group-hover:scale-105">
+              <div className="relative w-85 h-85 rounded-full overflow-hidden border-4 border-gradient shadow-2xl shadow-cyan-400/50 group-hover:shadow-cyan-400/50 transition-all duration-500 group-hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-amber-400/20" />
                 <div className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-white/80">
                   <img
