@@ -37,6 +37,8 @@ export interface Testimonial {
 export interface Service {
   tier: string;
   price: string;
+  qoute: string,
+  description: string;
   features: string[];
   highlighted?: boolean;
 }

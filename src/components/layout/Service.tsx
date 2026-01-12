@@ -13,48 +13,91 @@ const Services: React.FC = () => {
 
   const services: Service[] = [
     {
-      tier: 'Bronze',
-      price: '₦50k',
+      tier: 'Backend Performance Optimization',
+      price: '$600 - $1,200',
+      qoute: '(fixed based on app complexity)',
+      description: 'Improve your Django or Python backend’s speed, reliability, and efficiency for a smoother user experience. This service includes:',
       features: [
-        'API design & development',
-        'Database schema design',
-        'Basic authentication (JWT)',
-        'Complete API documentation',
-        'Up to 3 endpoints',
-        'Email support (48h response)',
-        '2 revision rounds',
+        'Profiling and optimizing database queries',
+        'Optimizing API response times',
+        'Implementing caching strategies (Redis or similar)',
+        'Reducing server load and latency',
+        'Optimizing Django middleware and settings for performance',
+        'Recommendations for scaling high-traffic applications',
       ],
     },
     {
-      tier: 'Silver',
-      price: '₦100k',
+      tier: 'Django Security Review',
+      price: '$350 – $900',
+      qoute: '(depending on app size and complexity)',
+      description: 'Comprehensive security audit of your Django application to protect your users and data. Service includes:',
       features: [
-        'Everything in Bronze',
-        'Up to 10 endpoints',
-        'Third-party integrations (Stripe, Twilio, etc.)',
-        'Advanced authentication (OAuth2, MFA)',
-        'Automated testing & CI/CD setup',
-        'Performance optimization',
-        'Slack/WhatsApp support (24h response)',
-        '5 revision rounds',
-        'Code review & refactoring',
+        'Review of authentication and authorization systems',
+        'Detection/prevention of common vulnerabilities (SQL Injection, XSS, CSRF)',
+        'Secure handling of sensitive user data',
+        'Session and cookie security assessment',
+        'Recommendations for secure production deployment',
+        'Third-party package security review',
+        'Optional implementation of high-priority fixes',
       ],
       highlighted: true,
     },
     {
-      tier: 'Gold',
-      price: '₦200k',
+      tier: 'Database Backup & Recovery Setup',
+      price: '$300 - $700',
+      qoute: '(depending on database size and hosting setup)',
+      description: 'Ensure your PostgreSQL or MySQL database is safely backed up and can be fully recovered if needed. Service includes:',
       features: [
-        'Everything in Silver',
-        'Unlimited endpoints',
-        'Microservices architecture',
-        'Real-time features (WebSocket)',
-        'Cloud deployment & auto-scaling (AWS/GCP)',
-        'Monitoring & logging setup (Grafana, ELK)',
-        'Comprehensive security audit',
-        'Priority 24/7 support',
-        'Unlimited revisions',
-        'Performance guarantee (SLA)',
+        'Automated daily/weekly backups',
+        'Secure storage setup (cloud or server-based)',
+        'One-click restore setup for disaster recovery',
+        'Testing backup and restore procedures',
+        'Recommendations for high availability and data retention policies',
+      ],
+    },
+    {
+      tier: 'API Audit & Cleanup',
+      price: '$450 – $900',
+      qoute: '(depending on number of endpoints and complexity)',
+      description: 'Audit your APIs for performance, security, and maintainability. Perfect for projects with multiple endpoints or third-party integrations. Service includes:',
+      features: [
+        'Reviewing all RESTful endpoints for efficiency',
+        'Optimizing payloads and reducing unnecessary data',
+        'Securing endpoints with authentication & authorization',
+        'Documentation review or creation (Swagger/OpenAPI)',
+        'Refactoring redundant or outdated code',
+        'Recommendations for scaling APIs for higher traffic',
+      ],
+    },
+    {
+      tier: 'Full-Stack Web / App Development',
+      price: '$2,500 – $6,000+',
+      qoute: '(project-based) - MVP $500 - $1000',
+      description: 'Businesses /Startups / SaaS products / Internal tools / MVPs that must scale. Service includes:',
+      features: [
+        'Backend architecture using Django / Flask / FastAPI',
+        'RESTful or GraphQL APIs',
+        'Secure authentication & authorization',
+        'PostgreSQL database design & optimization',
+        'Frontend integration (React / Next.js or clean templates)',
+        'Payment gateway integration',
+        'Deployment',
+        'Production monitoring & error handling',
+      ],
+      highlighted: true,
+    },
+    {
+      tier: 'AI Agents & Custom AI Tools Development',
+      price: '$1,500 – $5,000+',
+      qoute: '(depending on complexity)',
+      description: 'Audit your APIs for performance, security, and maintainability. Perfect for projects with multiple endpoints or third-party integrations. Service includes:',
+      features: [
+        'AI-powered assistants for business workflows',
+        'Custom GPT / LLM integrations',
+        'Automation agents (data processing, reporting, support)',
+        'Backend APIs powering AI tools',
+        'Secure prompt pipelines & usage limits',
+        'Integration with existing systems (CRM, dashboards, APIs)',
       ],
     },
   ];
@@ -105,9 +148,14 @@ const Services: React.FC = () => {
                   <div className="text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                     {service.price}
                   </div>
-                  <div className="text-2xl text-gray-500">/mo</div>
+                  <div className="text-2xl text-gray-500"></div>
                 </div>
-                <div className="text-gray-400 mb-8">Billed monthly, cancel anytime</div>
+                <div className="text-gray-400 mb-2 font-bold">
+                  {service.qoute}
+                </div>
+                <div className="text-gray-400 mb-8">
+                  {service.description}
+                </div>
 
                 <ul className="space-y-4 mb-10">
                   {service.features.map((feature, i) => (
