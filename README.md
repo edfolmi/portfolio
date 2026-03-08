@@ -1,4 +1,4 @@
-# 👨‍💻 Ephraim (Folmi) Daniel — Portfolio Website
+# 👨‍💻 Ephraim (Folmi) Daniel — Portfolio Website (v1.0)
 
 This is my **personal portfolio website** built with **React + TypeScript + Vite**.  
 It represents my work as a **Python Developer | API & Backend Engineer**, and showcases my projects, skills, and experience.
