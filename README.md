@@ -1,25 +1,53 @@
-# 👨‍💻 Ephraim (Folmi) Daniel — Portfolio Website (v1.0)
+# Ephraim Daniel — Portfolio
 
-This is my **personal portfolio website** built with **React + TypeScript + Vite**.  
-It represents my work as a **Python Developer | API & Backend Engineer**, and showcases my projects, skills, and experience.
+Personal portfolio site built as an editorial web experience rather than a typical startup landing page.
 
-## 🧭 About This Project
+## Design Direction
 
-This portfolio was designed to be:
-- ⚡ **Fast and lightweight** (Vite + React)
-- 💎 **Clean and minimal** (Tailwind CSS + modular components)
-- 🧩 **Scalable and maintainable** (TypeScript, Context API/Zustand)
-- 🧠 **Structured professionally** for clarity and extensibility
+The site is art-directed like a digital magazine spread:
 
-It’s not just a portfolio — it’s a reflection of **software engineering discipline**.
+- **Playfair Display** (serif) for headlines, **Inter** (sans) for body text
+- Warm ivory background, charcoal typography, muted rust accent
+- Asymmetric layouts, dramatic whitespace, typographic hierarchy
+- Scroll-reveal animations with gentle fade transitions
+- Projects presented as editorial case studies, not feature cards
 
-## ⚙️ Tech Stack
+## Structure
+
+| Section | Purpose |
+|---|---|
+| **Opening** | Full-viewport typographic statement |
+| **Identity** | Asymmetric portrait + editorial introduction |
+| **Selected Work** | Project case studies (challenge / approach / impact) |
+| **Capabilities** | Studio-style capability list |
+| **Voices** | Testimonial quotes with attribution |
+| **Philosophy** | Short written manifesto |
+| **Contact** | Email, LinkedIn, scheduling link |
+| **Colophon** | Minimal footer |
+
+## Tech Stack
 
 | Technology | Purpose |
-|-------------|----------|
-| **React 18 + TypeScript** | Frontend UI |
-| **Vite** | Fast dev/build tool |
-| **Tailwind CSS v4** | Styling |
-| **React Router v7** | Navigation |
-| **Zustand / Context API** | Lightweight state management |
-| **ESLint + Prettier** | Code linting & formatting |
+|---|---|
+| React 19 + TypeScript | UI layer |
+| Vite | Dev server and build tool |
+| Tailwind CSS v4 | Utility styling with `@theme` configuration |
+| React Router v7 | Routing |
+| ESLint + Prettier | Linting and formatting |
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start local dev server |
+| `npm run build` | Type-check and production build |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run ESLint |
+| `npm run format` | Format code with Prettier |
