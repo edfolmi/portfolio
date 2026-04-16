@@ -7,6 +7,7 @@ const App = () => {
     <main>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/agent" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>

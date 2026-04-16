@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/customHooks';
 
 const ContactSection: React.FC = () => {
@@ -48,15 +49,13 @@ const ContactSection: React.FC = () => {
                 Open to full-time roles and select project engagements.
                 Book a free 15-minute call to discuss your requirements.
               </p>
-              <a
-                href="https://calendly.com/edfolmi/30min"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/agent?book=1"
                 className="ed-button mt-6 inline-flex"
               >
                 Schedule a call
                 <span className="text-xs">&#8599;</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
